@@ -1,0 +1,173 @@
+// main: main.less
+
+
+/*
+  Background
+*/
+
+
+.winona_tguy {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+}
+.winona_tguy:before {
+  position: absolute;
+  left: 40px;
+  bottom: -4px;
+
+  content: '';
+  display: block;
+  width: 356px;
+  height: 400px;
+
+  background-image: url('../img/tguy_stroke.png');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+.winona_tguy:after {
+  position: absolute;
+  right: 40px;
+  bottom: -4px;
+
+  content: '';
+  display: block;
+  width: 428px;
+  height: 400px;
+
+  background-image: url('../img/winona_stroke.png');
+  background-repeat: no-repeat;
+  background-position: right  bottom;
+}
+.site_viewport {
+  position: relative;
+
+  min-height: 815px;
+  height: 100%;
+  overflow: hidden;
+
+}
+
+.viewport_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image: url('../img/bg_wall.png');
+  background-repeat: repeat;
+  background-position: center;
+
+  &:before {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    content: '';
+    display: block;
+    width: 100%;
+    height: 330px;
+
+    background-image: url('../img/bg_panels.jpg');
+    background-repeat: repeat;
+    background-position: center;
+  }
+
+  &:after {
+    position: absolute;
+    left: 0;
+    bottom: 330px;
+
+    content: '';
+    display: block;
+    width: 100%;
+    height: 30px;
+
+    background-image: url('../img/bg_molding.png');
+    background-repeat: repeat-x;
+    background-position: center top;
+  }
+}
+
+.couch {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  content: '';
+  display: block;
+  width: 100%;
+  height: 135px;
+
+  background-image: url('../img/bg_couch.png');
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.viewport_bg_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+
+    background-color: #DC9025;
+  }
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+
+    background-color: #000;
+
+    .transition(all 0.3s linear);
+  }
+
+  &.connecting {
+    &:after {
+      opacity: 0.7;
+
+      background-color: #000;
+    }
+  }
+}
+
+.viewport_bg_vignette {
+  position: absolute;
+  left: 0;
+  top: 0;
+  .transform(scale(1.1));
+
+  width: 100%;
+  height: 100%;
+
+  background-image: url('../img/vignette.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .transition(all 0.3s linear);
+}

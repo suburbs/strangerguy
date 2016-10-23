@@ -1,0 +1,190 @@
+// main: main.less
+
+
+.keyframes(@name; @arguments) {
+	@-moz-keyframes @name { @arguments(); }
+	@-webkit-keyframes @name { @arguments(); }
+	@keyframes @name { @arguments(); }
+}
+
+.animation-name(@arguments) {
+	-webkit-animation-name: @arguments;
+	-moz-animation-name: @arguments;
+  -o-animation-name: @arguments;
+	animation-name: @arguments;
+}
+
+.animation-duration(@arguments) {
+	-webkit-animation-duration: @arguments;
+	-moz-animation-duration: @arguments;
+  -o-animation-duration: @arguments;
+	animation-duration: @arguments;
+}
+
+.animation-fill-mode(@arguments) {
+	-webkit-animation-fill-mode: @arguments;
+	-moz-animation-fill-mode: @arguments;
+  -o-animation-fill-mode: @arguments;
+	animation-fill-mode: @arguments;
+}
+
+.animation-iteration-count(@arguments) {
+	-webkit-animation-iteration-count: @arguments;
+	-moz-animation-iteration-count: @arguments;
+  -o-animation-iteration-count: @arguments;
+	animation-iteration-count: @arguments;
+}
+
+
+.transform(@transform) {
+  -webkit-transform: @transform;
+  -moz-transform: @transform;
+  -ms-transform: @transform;
+  -o-transform: @transform;
+  transform: @transform;
+}
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -ms-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+.box-shadow( @arguments1) {
+  -webkit-box-shadow:  @arguments1;
+  -moz-box-shadow:  @arguments1;
+  -ms-box-shadow:  @arguments1;
+  -o-box-shadow:  @arguments1;
+  box-shadow:  @arguments1;
+}
+
+.box-shadow( @arguments1, @arguments2) {
+  -webkit-box-shadow:  @arguments1, @arguments2;
+  -moz-box-shadow:  @arguments1, @arguments2;
+  -ms-box-shadow:  @arguments1, @arguments2;
+  -o-box-shadow:  @arguments1, @arguments2;
+  box-shadow:  @arguments1, @arguments2;
+}
+
+.box-shadow( @arguments1, @arguments2,  @arguments3) {
+  -webkit-box-shadow:  @arguments1, @arguments2,  @arguments3;
+  -moz-box-shadow:  @arguments1, @arguments2,  @arguments3;
+  -ms-box-shadow:  @arguments1, @arguments2,  @arguments3;
+  -o-box-shadow:  @arguments1, @arguments2,  @arguments3;
+  box-shadow:  @arguments1, @arguments2,  @arguments3;
+}
+
+.box-shadow( @arguments1, @arguments2,  @arguments3,  @arguments4) {
+  -webkit-box-shadow:  @arguments1, @arguments2,  @arguments3,  @arguments4;
+  -moz-box-shadow:  @arguments1, @arguments2,  @arguments3,  @arguments4;
+  -ms-box-shadow:  @arguments1, @arguments2,  @arguments3,  @arguments4;
+  -o-box-shadow:  @arguments1, @arguments2,  @arguments3,  @arguments4;
+  box-shadow:  @arguments1, @arguments2,  @arguments3,  @arguments4;
+}
+
+.border-radius( @arguments1) {
+  -webkit-border-radius:  @arguments1;
+  -moz-border-radius:  @arguments1;
+  -ms-border-radius:  @arguments1;
+  -o-border-radius:  @arguments1;
+  border-radius:  @arguments1;
+}
+
+/*
+  Tools
+*/
+
+.when_loaded {
+  visibility: hidden;
+  opacity: 0;
+
+  .transition(all 0.3s linear);
+}
+
+.when_loaded.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.animated {
+  .animation-duration(1s);
+  .animation-fill-mode(both);
+}
+
+.animated.infinite {
+  .animation-iteration-count(infinite);
+}
+
+.pulse {
+  .keyframes(pulse;{
+    from {
+      .transform(scale3d(1, 1, 1));
+    }
+
+    50% {
+      .transform(scale3d(1.05, 1.05, 1.05));
+    }
+
+    to {
+      .transform(scale3d(1, 1, 1));
+    }
+	});
+
+	.animation-name(pulse);
+}
+
+
+@-webkit-keyframes lineFill {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@-keyframes lineFill {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.line_fill {
+  .keyframes(lineFill;{
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+	});
+  .animation-name(lineFill);
+  .animation-duration(1s);
+  .animation-fill-mode(both);
+}
+
+.scaling_vignette {
+  .keyframes(scaleVignette;{
+    from {
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1);
+      -webkit-transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+      -webkit-transform: scale(1.1);
+    }
+	});
+  .animation-name(scaleVignette);
+  .animation-duration(5s);
+  .animation-fill-mode(both);
+  .animation-iteration-count(infinite);
+}
